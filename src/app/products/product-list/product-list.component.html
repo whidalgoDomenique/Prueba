@@ -1,0 +1,48 @@
+<div class="container">
+    <table class="table is-striped">
+        <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Acciones</th>
+        </thead>
+       
+
+        <tbody>
+            
+            <tr *ngFor = "let prod of products">
+                <td>{{prod.id}}</td>
+                <td>{{prod.name}}</td>
+                <td>
+                    <img [src]="prod.urlImage" alt="">
+                </td>
+                <td>
+                    <button  [disabled]="!prod.actived" class="button is-small is-success" (click)="handleUpdate(prod.id)">Actualizar</button> 
+                    <button  class="button is-small is-link" (click)="handleState(prod)">
+                        {{prod.actived ? 'Deshabilitar' : 'Habilitar'}}</button>
+                    <button [disabled]="!prod.actived" class="button is-small is-danger" (click)="handleDelete(prod)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+<div class="container">
+
+        {{ sucursales  }}
+        <table class="table is-striped"> 
+            <thead>
+                <th>Código sucursal</th>
+            </thead>
+    
+            <tbody>
+                
+                <tr *ngFor = "let sucur of sucursales">
+                  Key: <b>{{sucur.key}}</b> and Value: <b>{{sucur.value}}</b>
+                    <td>{{sucursales.sucursal}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
